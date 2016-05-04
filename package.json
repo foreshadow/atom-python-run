@@ -1,0 +1,19 @@
+{
+  "name": "atom-python-run",
+  "main": "./lib/atom-python-run",
+  "version": "0.1.0",
+  "description": "Run a python source file.",
+  "keywords": [
+      "python"
+  ],
+  "activationCommands": {
+    "atom-workspace": "atom-python-run:run"
+  },
+  "repository": "not yet",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
