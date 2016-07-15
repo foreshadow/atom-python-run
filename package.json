@@ -1,14 +1,11 @@
 {
   "name": "atom-python-run",
-  "main": "./lib/atom-python-run",
-  "version": "0.2.0",
+  "main": "./lib/atom-python-run.js",
+  "version": "0.3.0",
   "description": "Run a python source file.",
   "keywords": [
     "python"
   ],
-  "activationCommands": {
-    "atom-workspace": "atom-python-run:run"
-  },
   "repository": "https://github.com/foreshadow/atom-python-run",
   "license": "MIT",
   "engines": {

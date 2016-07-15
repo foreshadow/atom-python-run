@@ -1,3 +1,6 @@
+## 0.3.0
+* auto activate
+
 ## 0.2.0
 * trigger-key is set to F5
 * add info when trigger with not a .py file

@@ -1,5 +1,6 @@
 {
   "atom-text-editor": {
-    "f5": "Python run: run"
+    "f5": "Python run: run",
+    "f6": "Python run: run"
   }
 }
