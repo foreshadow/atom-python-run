@@ -1,6 +1,6 @@
 # atom-python-run package
 
-Run your python source file (.py)!
+Run your python source file (.py) using F5 or F6!
 
 Using ```cmd.exe```, windows platform only.
 
