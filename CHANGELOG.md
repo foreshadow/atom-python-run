@@ -1,3 +1,7 @@
+## 0.4.0
+* using a new console message like CodeBlocks, `raw_input()` is no longer needed.
+* now can display compile error messages instead of exiting
+
 ## 0.3.0
 * auto activate
 
