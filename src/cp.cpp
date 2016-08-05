@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-    char cmd[1024];
+    char cmd[4096];
     for (int i = 1; i < argc; i++) {
         strcat(cmd, argv[i]);
         strcat(cmd, " ");
@@ -15,9 +15,8 @@ int main(int argc, char *argv[])
     t = clock() - t;
     printf("\n"
            "Process returned %d (0x%X)   execution time : %.3f s\n"
-           "Press any key to continue.\n", 
+           /*"Press any key to continue.\n"*/, 
         r, r, t / 1000.);
-    fflush(stdin);
-    getchar();
+    system("pause");
     return r;
 }
