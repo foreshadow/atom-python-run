@@ -5,7 +5,8 @@
 
 int main(int argc, char *argv[])
 {
-    char cmd[4096] = "title "; // init cmd & prepend title
+    char cmd[4096];
+    strcpy(cmd, "title "); // prepend title
     for (int i = 1; i < argc; i++) {
         strcat(cmd, argv[i]);
         strcat(cmd, " ");
