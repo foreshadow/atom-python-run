@@ -9,8 +9,8 @@ Run your python source file (.py) using `F5` or `F6`!
 
 # Usage
 
-- Open a .py file.
-- Hit `F5` or `F6` to run.
+1. Open a .py file.
+2. Hit `F5` or `F6` to run.
 
 # Features
 
