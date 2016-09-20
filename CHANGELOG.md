@@ -1,3 +1,6 @@
+## 0.5.2
+* force set cwd
+
 ## 0.5.0
 * thanks to Frezzu for fixing the missing dll bug
 
