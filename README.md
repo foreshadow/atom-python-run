@@ -2,6 +2,8 @@
 
 Run your python source file (.py) using `F5` or `F6`!
 
+![](https://cloud.githubusercontent.com/assets/2712675/18710388/9a665ed8-8037-11e6-803a-35e4555e89d0.jpg)
+
 # Prerequisite
 
 - Windows 
@@ -11,14 +13,14 @@ Run your python source file (.py) using `F5` or `F6`!
 
 1. Open a .py file.
 2. Hit `F5` or `F6` to run.
-  - **Save the file in current editor immediately without a notification, be aware.** 
+  - **It will save the file in current editor immediately without a notification, be aware.** 
 
 # Features
 
 - Using `python.exe`
-  - almost the same console with python IDLE, which provides syntax error and runtime error messages.
+  - Almost the same console with python IDLE, which provides syntax error and runtime error messages.
 - CodeBlocks debug console style
-  - shows return value and execution time
+  - Shows return value and execution time
     - It is a rough time based on real time rather than CPU kernel time or CPU user time
 - New an issue if you have any idea of new features.
 
