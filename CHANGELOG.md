@@ -1,5 +1,8 @@
+## 0.6.1
+* create an option to disable notifications of failure, false by default
+
 ## 0.6.0
-* create an option to disable notifications on success, false by default
+* create an option to disable notifications of success, false by default
 
 ## 0.5.2
 * force set cwd
