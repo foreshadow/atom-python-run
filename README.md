@@ -13,7 +13,7 @@ Run your python source file (.py) using `F5` or `F6`!
 
 1. Open a .py file.
 2. Hit `F5` or `F6` to run.
-  - **It will save the file in current editor immediately without a notification, be aware.** 
+  - **It will save the file in current editor immediately without a confirmation, be aware.** 
 
 # Features
 

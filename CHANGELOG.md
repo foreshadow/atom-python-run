@@ -1,3 +1,6 @@
+## 0.6.2
+* Fix bug: Uncaught TypeError: Cannot read property 'path' of null
+
 ## 0.6.1
 * create an option to disable notifications of failure, false by default
 
