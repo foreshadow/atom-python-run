@@ -1,3 +1,6 @@
+## v1.0.0 
+* Initial version of python-run-terminalnx package
+
 ## 0.6.2
 * Fix bug: Uncaught TypeError: Cannot read property 'path' of null
 
