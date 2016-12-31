@@ -1,7 +1,7 @@
 {
   "name": "python-run-terminalnx",
   "main": "./lib/atom-python-run.js",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Run a python source file.",
   "keywords": [
     "python"
