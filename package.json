@@ -1,15 +1,23 @@
 {
   "name": "python-run-terminalnx",
-  "main": "./lib/atom-python-run.js",
+  "main": "./lib/python-run-terminalnx.js",
   "version": "0.6.3",
-  "description": "Run a python source file.",
+  "description": "Run a python source file in a Linux Terminal.",
   "keywords": [
-    "python"
+    "python",
+    "terminal",
+    "gnome-terminal",
+    "konsole",
+    "xterm",
+    "uxterm",
+    "linux"
   ],
   "repository": "https://github.com/jacquexgithub/python-run-terminalnx",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "python": "3.x"
+  }
 }
