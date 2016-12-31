@@ -1,7 +1,7 @@
 {
   "name": "python-run-terminalnx",
   "main": "./lib/python-run-terminalnx.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Run a python source file in a Linux Terminal.",
   "keywords": [
     "python",
@@ -18,6 +18,5 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
