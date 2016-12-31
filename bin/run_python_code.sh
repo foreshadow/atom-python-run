@@ -10,7 +10,6 @@ for ((i = 0; i < ${#la[@]}; ++i)) do
 done
 
 python "$1" ${arg_l_c[@]}
-echo python "$1" ${arg_l_c[@]}
 
 if [ $? -eq 0 ]; then
     echo -e "
