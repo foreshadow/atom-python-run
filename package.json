@@ -1,12 +1,12 @@
 {
-  "name": "atom-python-run",
+  "name": "python-run-terminalnx",
   "main": "./lib/atom-python-run.js",
   "version": "0.6.2",
   "description": "Run a python source file.",
   "keywords": [
     "python"
   ],
-  "repository": "https://github.com/foreshadow/atom-python-run",
+  "repository": "https://github.com/jacquexgithub/python-run-terminalnx",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
