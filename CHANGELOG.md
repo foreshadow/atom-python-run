@@ -1,3 +1,7 @@
+## v1.0.3
+* Fix bug: run_python_code.sh interpret it with sh no with bash
+* Add support for xfce4-terminal 
+
 ## v1.0.0 
 * Initial version of python-run-terminalnx package
 
