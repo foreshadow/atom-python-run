@@ -1,3 +1,7 @@
+## 0.7.0
+* Fix bug: multiple consoles
+* New feature: add command setting with f5 and f6
+
 ## 0.6.2
 * Fix bug: Uncaught TypeError: Cannot read property 'path' of null
 
