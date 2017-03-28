@@ -1,4 +1,4 @@
-##v1.0.4
+## v1.0.4
 * Fix shell issue for Ubuntu 16.04LTS based distributions
 
 ## v1.0.3
