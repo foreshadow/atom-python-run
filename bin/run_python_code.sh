@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 oldIFS=$IFS
 IFS=''
 arg_l_c=()
@@ -27,3 +27,4 @@ echo "Press return to continue"
 dummy_var=""
 read dummy_var
 IFS=$old_IFS
+
