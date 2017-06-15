@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 oldIFS=$IFS
 IFS=''
 arg_l_c=()
