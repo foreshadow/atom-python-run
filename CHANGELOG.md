@@ -1,3 +1,6 @@
+## v1.0.4
+* Fix shell issue for Ubuntu 16.04LTS based distributions
+
 ## v1.0.3
 * Fix bug: run_python_code.sh interpret it with sh no with bash
 * Add support for xfce4-terminal 
