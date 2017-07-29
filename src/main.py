@@ -1,7 +1,7 @@
 from __future__ import print_function
-from sys import argv
 from os import system
-from parser import Parser
+from sys import argv
+from parse import Parser
 
 
 if __name__ == '__main__':
@@ -11,6 +11,7 @@ if __name__ == '__main__':
     parser.parse_args()
     namespace = parser.get_namespace()
     command = list()
+    print(namespace.interpreter)
     command.append(namespace.interpreter)
 
     for opt in namespace.options:
@@ -23,5 +24,6 @@ if __name__ == '__main__':
         command.append(namespace.pipe_file)
 
     print(' '.join(command))
+    # command = ' '.join(command)
 
-    r = system(command)
+    # r = system(command)

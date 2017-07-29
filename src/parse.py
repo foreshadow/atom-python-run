@@ -1,7 +1,6 @@
 """parser - handles arbitrary arguments to be executed."""
 
 from __future__ import print_function
-from sys import argv
 from os.path import isfile, expanduser, expandvars
 
 
@@ -61,7 +60,8 @@ class SimpleArgParser(Namespace):
             exit(1)
 
     def _set_interpreter(self):
-        self.shift()
+        if self.namespace.pipe:
+            self.shift()
         self.namespace.interpreter = self.get_arg('missing interpreter')
 
     def _set_options(self):
@@ -154,13 +154,13 @@ class Parser(SimpleHelpParser, SimpleOptParser, SimpleArgParser):
         self._set_script()
 
 
-if __name__ == '__main__':
-    parser = Parser(argv)
-    parser.check_args(argv)
-    parser.parse_opts()
-    parser.parse_args()
-
-    namespace = vars(parser.get_namespace())
-
-    for key, value in namespace.iteritems():
-        print('{} = {}'.format(key, value))
+# if __name__ == '__main__':
+#     parser = Parser(argv)
+#     parser.check_args(argv)
+#     parser.parse_opts()
+#     parser.parse_args()
+#
+#     namespace = vars(parser.get_namespace())
+#
+#     for key, value in namespace.iteritems():
+#         print('{} = {}'.format(key, value))
