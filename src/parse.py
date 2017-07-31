@@ -1,6 +1,66 @@
-"""parser - handles arbitrary arguments to be executed."""
+"""
+parser - handles arbitrary arguments to be executed.
+
+NOTE: use the main.py file instead if you want to execute scripts. while parse.py is executable,
+it executes as a dummy file and doesn't actually execute anything directly. it simply demonstrates
+how parse.py handles the argv variable.
+
+argv is a list and join could be used in conjunction to create a concatenated string.
+
+this string could be passed directly to command. it is up to the end user to make sure the
+command executes as intended.
+
+parse.py is mainly designed to be an extremely lightweight check.
+
+it's rules restrict what can be passed to it while remaining flexible enough to be able
+achieve arbitrary execution.
+
+in example:
+
+this will always fail... and should always fail.
+    -> python is the interpreter to be executed by parse.py
+    -> -c is the option to be passed to python (not parse.py)
+    -> string is the command to be executed by python (not parse.py)
+
+the point of the file check is to determine if the file actually exists before attempting to read
+it; not to see if it is executable. we also have no intention of writing to it. obviously, a string
+is executable, but we want to execute a file; not a string.
+
+    $ python parse.py python -c 'print("hello, world!")'
+    IOError: file does not exist: print("hello, world!")
+
+    $ python -c "print('Hello, World!')"
+    bash: !': event not found
+
+    $ python -c 'print("hello, world!")'
+    hello, world
+
+parse.py will handle user and variable expansion. globs should never be expanded.
+the final argument should always be a source file that can be executed by the given interpreter.
+
+    $ python parse.py node ~/documents/js/hello.js
+    ...dictionary output here...
+
+parse.py will handle its own options as long as they are placed before the interpreter argument.
+any arguments inbetween the interpreter and the filename are considered options to be passed to the
+interpreter itself.
+
+parse.py also handles redirection. for example, if you want to pipe stdout while appending to a
+file, you can do this
+
+    $ python parse.py -p out.log '>>' node ~/documents/js/hello.js
+    ...dictionary output here...
+
+for more usage information, use main.py
+
+    $ python main.py -h
+    ...help output here...
+
+an example on how to use the Parser object is demonstrated at the end of the file
+"""
 
 from __future__ import print_function
+from sys import argv
 from os.path import isfile, expanduser, expandvars
 
 
@@ -154,13 +214,13 @@ class Parser(SimpleHelpParser, SimpleOptParser, SimpleArgParser):
         self._set_script()
 
 
-# if __name__ == '__main__':
-#     parser = Parser(argv)
-#     parser.check_args(argv)
-#     parser.parse_opts()
-#     parser.parse_args()
-#
-#     namespace = vars(parser.get_namespace())
-#
-#     for key, value in namespace.iteritems():
-#         print('{} = {}'.format(key, value))
+if __name__ == '__main__':
+    parser = Parser(argv)
+    parser.check_args(argv)
+    parser.parse_opts()
+    parser.parse_args()
+
+    namespace = vars(parser.get_namespace())
+
+    for key, value in namespace.iteritems():
+        print('{} = {}'.format(key, value))
