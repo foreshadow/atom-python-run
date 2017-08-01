@@ -62,6 +62,10 @@ an example on how to use the Parser object is demonstrated at the end of the fil
 from __future__ import print_function
 from sys import argv
 from os.path import isfile, expanduser, expandvars
+import logging
+
+
+__all__ = ("Parser")
 
 
 class Namespace(object):
@@ -101,22 +105,31 @@ class SimpleHelpParser(Namespace):
 class SimpleArgParser(Namespace):
     def shift(self):
         self.index += 1
+        message = 'shift(): index is now {}'.format(self.index)
+        logging.debug(message)
 
     def error(self, taxonomy, message, extendmsg=None):
         if not extendmsg:
-            print('{}: {}'.format(taxonomy, message))
+            message = '{}: {}'.format(taxonomy, message)
         else:
-            print('{}: {}: {}'.format(taxonomy, message, extendmsg))
+            message = '{}: {}: {}'.format(taxonomy, message, extendmsg)
+        print(message)
+        logging.error(message)
         exit(1)
 
     def get_arg(self, errmsg=None):
         try:
-            return self.args[self.index]
+            arg = self.args[self.index]
+            message = 'get_arg(): argument is {}'.format(arg)
+            logging.debug(message)
+            return arg
         except IndexError as e:
             if errmsg:
-                print('IndexError: {}: {}'.format(errmsg, e))
+                message = 'IndexError: {}: {}'.format(errmsg, e)
             else:
-                print('IndexError: {}'.format(e))
+                message = 'IndexError: {}'.format(e)
+            print(message)
+            logging.error(message)
             exit(1)
 
     def _set_interpreter(self):
@@ -152,6 +165,7 @@ class SimpleOptParser(Namespace):
 
     def _set_pipe_flag(self):
         self.namespace.pipe = True
+        logging.debug('namespace: has pipe')
 
     def _set_pipe_file(self):
         self.shift()
@@ -215,6 +229,8 @@ class Parser(SimpleHelpParser, SimpleOptParser, SimpleArgParser):
 
 
 if __name__ == '__main__':
+    logging.basicConfig(filename='testing-cp.log', filemode='w', level=logging.DEBUG)
+
     parser = Parser(argv)
     parser.check_args(argv)
     parser.parse_opts()
