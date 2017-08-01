@@ -105,8 +105,7 @@ class SimpleHelpParser(Namespace):
 class SimpleArgParser(Namespace):
     def shift(self):
         self.index += 1
-        message = 'shift(): index is now {}'.format(self.index)
-        logging.debug(message)
+        logging.debug('shift(): index is now %s', self.index)
 
     def error(self, taxonomy, message, extendmsg=None):
         if not extendmsg:
@@ -120,8 +119,7 @@ class SimpleArgParser(Namespace):
     def get_arg(self, errmsg=None):
         try:
             arg = self.args[self.index]
-            message = 'get_arg(): argument is {}'.format(arg)
-            logging.debug(message)
+            logging.debug('get_arg(): argument is %s', arg)
             return arg
         except IndexError as e:
             if errmsg:
@@ -165,7 +163,6 @@ class SimpleOptParser(Namespace):
 
     def _set_pipe_flag(self):
         self.namespace.pipe = True
-        logging.debug('namespace: has pipe')
 
     def _set_pipe_file(self):
         self.shift()
@@ -209,6 +206,8 @@ class Parser(SimpleHelpParser, SimpleOptParser, SimpleArgParser):
         self.namespace.last_element = args[-1:][0]
 
     def check_args(self, args):
+        for index, arg in enumerate(args):
+            logging.debug('check_args(): index %d: arg: %s', index, arg)
         if not len(args) > 1:
             self.usage()
             exit(1)
@@ -221,11 +220,13 @@ class Parser(SimpleHelpParser, SimpleOptParser, SimpleArgParser):
         if self.isvalid(arg):
             self._help(arg)
             self._set_pipe(arg)
+            logging.debug('namespace: has pipe: %d', self.namespace.pipe)
 
     def parse_args(self):
         self._set_interpreter()
         self._set_options()
         self._set_script()
+        logging.debug('namespace: script: %s', self.namespace.script)
 
 
 if __name__ == '__main__':

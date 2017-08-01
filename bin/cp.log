@@ -1,8 +1,0 @@
-Log: file path and name: 'C:\Users\Infinity\.atom\packages\atom-python-run\bin\cp.log'
-Log: file path and name: 'C:\Users\Infinity\Desktop\can-t-stop.py'
-Log: cmd: 'python "C:\Users\Infinity\Desktop\can-t-stop.py"'
-Log: system type: win32
-Log: cp-executable version: v0.7.3
-Log: argv[0]: 'C:\Users\Infinity\.atom\packages\atom-python-run\bin\cp-win32'
-Log: argv[1]: 'python'
-Log: argv[2]: 'C:\Users\Infinity\Desktop\can-t-stop.py'
