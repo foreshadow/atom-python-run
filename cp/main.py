@@ -13,9 +13,14 @@ from cp import cplib
 
 
 if __name__ == '__main__':
-    logpath = cplib.set_logpath()
+    logpath = cplib.set_log_path()
 
-    basicConfig(filename=logpath, filemode='w', level=DEBUG, format='%(levelname)s: %(message)s')
+    basicConfig(
+        filename=logpath,
+        filemode='w',
+        level=DEBUG,
+        format='%(levelname)s: %(message)s'
+    )
 
     info('OS Type: %s', platform)
 

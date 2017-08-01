@@ -43,6 +43,9 @@
 #
 # using pythons raw strings may be a work around to this issue, but thats for another time
 #
+# NOTE: Determine platform Type
+#   https://docs.python.org/2/library/sys.html#sys.platform
+#
 from os import system, environ
 from os.path import isdir, dirname
 from sys import platform
@@ -58,7 +61,7 @@ except ImportError:
 
 
 __all__ = (
-    'set_logpath', 'set_namespace', 'set_command',
+    'set_log_path', 'set_namespace', 'set_command',
     'set_clock', 'print_clock',
     'pause'
 )
@@ -67,15 +70,15 @@ __all__ = (
 version_info = "v0.0.10"
 
 
-def set_logpath():
+def set_log_path():
     if 'win32' == platform:
-        logpath = "{}\\.atom\\packages\\atom-python-run\\cp.log".format(environ['USERPROFILE'])
+        log = "{}\\.atom\\packages\\atom-python-run\\cp.log".format(environ['USERPROFILE'])
     else:
-        logpath = "{}/.atom/packages/atom-python-run/cp.log".format(environ['HOME'])
-    path = dirname(logpath)
+        log = "{}/.atom/packages/atom-python-run/cp.log".format(environ['HOME'])
+    path = dirname(log)
     if not isdir(path):
         return "cp.log"
-    return logpath
+    return log
 
 
 def set_namespace(args):
@@ -84,7 +87,7 @@ def set_namespace(args):
     parser.parse_opts()
     parser.parse_args()
     namespace = parser.get_namespace()
-    for key, value in vars(namespace):
+    for key, value in vars(namespace).items():
         logging.debug('namespace: key "%s": value "%s"', key, value)
     return namespace
 
@@ -107,7 +110,7 @@ def set_clock(command):
     t = clock()
     r = system(command)
     t = clock() - t
-    logging.debug('return code: %d: elapsed time: %d', r, t)
+    logging.info('return code: %d: elapsed time: %.6f', r, t)
     return r, t
 
 
@@ -124,7 +127,7 @@ def pause():
         system('pause')
     elif 'darwin' == platform:
         system('echo "Close this window to continue..."')
-    elif 'linux' == platform:
+    elif 'linux' == platform[:-1]:
         system("printf 'Press [ENTER] to continue...'; read _;")
     else:
         logging.info('Unknown OS Type: %s', platform)

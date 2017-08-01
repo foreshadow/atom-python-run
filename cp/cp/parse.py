@@ -119,7 +119,7 @@ class SimpleArgParser(Namespace):
     def get_arg(self, errmsg=None):
         try:
             arg = self.args[self.index]
-            logging.debug('get_arg(): argument is %s', arg)
+            logging.debug('get_arg(): current argument: %s', arg)
             return arg
         except IndexError as e:
             if errmsg:
@@ -230,7 +230,12 @@ class Parser(SimpleHelpParser, SimpleOptParser, SimpleArgParser):
 
 
 if __name__ == '__main__':
-    logging.basicConfig(filename='testing-cp.log', filemode='w', level=logging.DEBUG)
+    logging.basicConfig(
+        filename='testing-cp.log',
+        filemode='w',
+        level=logging.DEBUG,
+        format='%(levelname)s: %(message)s'
+    )
 
     parser = Parser(argv)
     parser.check_args(argv)
