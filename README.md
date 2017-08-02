@@ -56,7 +56,7 @@ Run your python (.py) source file using `F5` or `F6`!
   - Windows
     1. Open file explorer
     2. Click the location bar (where the file path usually is)
-    3. Type in %userprofile%\.atom\packages\atom-python-run
+    3. Type in `%userprofile%\.atom\packages\atom-python-run`
     4. Locate, Open, and Copy the contents of the cp.log file along with your post.
   - Mac OS X/Linux
     1. Open a terminal window.
