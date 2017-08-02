@@ -7,9 +7,15 @@
 Run your python (.py) source file using `F5` or `F6`!
 
 ![](https://cloud.githubusercontent.com/assets/2712675/18710388/9a665ed8-8037-11e6-803a-35e4555e89d0.jpg)
+# Prerequisite
+
+- Add the directory of `python` (or the intended interpreter) to ```PATH```.
+
+- Filter file extensions (unset by default) (optional)
+
 # Supports
 - Python 2 and 3
-  - Note: if you have problems executing, you can install a global version of latest `python2.7.x` (even if you have `python3.x.x` installed). Please report any `python3` issues if you want to avoid installing a global `python2` version.
+  - Note: If you have problems executing, you can install a global version of latest `python2.7.x` (even if you have `python3.x.x` installed). Please report any `python3` issues if you want to avoid installing a global `python2` version.
 
 - Cross Platform Compatible
   - Runs on Windows, Mac OS X, and Linux
@@ -18,12 +24,6 @@ Run your python (.py) source file using `F5` or `F6`!
   - Global python is the default interpreter
   - Execute using any interpreter
   - Pass options to the given interpreter
-
-# Prerequisite
-
-- Add the directory of `python` (or the intended interpreter) to ```PATH```.
-
-- Filter file extensions (unset by default) (optional)
 
 # Method of use
 
@@ -39,6 +39,32 @@ Run your python (.py) source file using `F5` or `F6`!
   - Shows return value and execution time
     - It is a rough time based on real time rather than CPU kernel time or CPU user time
 - New an issue if you have any idea of new features.
+
+# Issues
+- The new version of atom-python-run fully supports logging.
+  - Please post these logs with along with issue you're experiencing.
+  - Note that there are two logs in case the latter fails. The first log is the console log and the second log is created by the cp main.py executable.
+
+- How to access Atoms Console Log
+  - Windows/Linux
+    - Ctrl + Shift + I
+  - Mac OS X
+    - Cmd + Alt + I
+  - Copy and paste the console output along with your post.
+
+- How to access `cp`'s built-in log
+  - Windows
+    1. Open file explorer
+    2. Click the location bar (where the file path usually is)
+    3. Type in %userprofile%\.atom\packages\atom-python-run
+    4. Locate, Open, and Copy the contents of the cp.log file along with your post.
+  - Mac OS X/Linux
+    1. Open a terminal window.
+    `$ cat ~/.atom/packages/atom-python-run/cp.log`
+    2. Copy and paste the contents along with your post.
+  - NOTE: If the `cp.log` file is missing or empty, please note that this was case in your post.
+
+- Detailed issues are well presented issues. This will help us locate your issue.
 
 ![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
 
