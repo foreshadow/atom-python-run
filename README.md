@@ -62,7 +62,7 @@ Run your python (.py) source file using `F5` or `F6`!
     1. Open a terminal window.
     `$ cat ~/.atom/packages/atom-python-run/cp.log`
     2. Copy and paste the contents along with your post.
-  - NOTE: If the `cp.log` file is missing or empty, please note that this was case in your post.
+  - NOTE: If the `cp.log` file is missing, empty, or inaccurate, please note that this was case in your post.
 
 - Detailed issues are well presented issues. This will help us locate your issue.
 
