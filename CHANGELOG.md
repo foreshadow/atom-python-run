@@ -1,10 +1,22 @@
+## 0.7.6
+* Updated and refactored terminal.js to function with python version of cp
+
+## 0.7.5
+* Ported cp from C to Python
+* Added new features to cp
+
+## 0.7.4
+* Made cross-platform compatible
+* Ported cp from C++ to C
+* Added a niche library for cp
+
 ## 0.7.3
 * `{dir}` `{name}` `{ext}` is now supported. You can use `python.exe "{dir}\{name}{ext}"`, which is equal to `python.exe "{file}"`.
 
 ## 0.7.2
 * Trying to fix bug: cannot find file in some environments
 
-## 0.7.0 (skipped due to apm bug) and 0.7.1 
+## 0.7.0 (skipped due to apm bug) and 0.7.1
 * Fix bug: multiple consoles
 * New feature: add command setting with f5 and f6
 
