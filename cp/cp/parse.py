@@ -51,9 +51,9 @@ file, you can do this
     $ python parse.py -p out.log '>>' node ~/documents/js/hello.js
     ...dictionary output here...
 
-for more usage information, use main.py
+for more usage information, do
 
-    $ python main.py -h
+    $ python parse.py -h
     ...help output here...
 
 an example on how to use the Parser object is demonstrated at the end of the file

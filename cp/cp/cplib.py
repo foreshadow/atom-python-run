@@ -38,8 +38,8 @@
 # i refrained from implementing this as it may cause more issues than the one it would solve.
 #
 # for example, you could inadvertantly create a seperated path looking like this
-# from -> c:\Users\User&Name
-# to   -> c:\Users\User\&Name
+# from -> c:\\Users\\User&Name
+# to   -> c:\\Users\\User\\&Name
 #
 # using pythons raw strings may be a work around to this issue, but thats for another time
 #
