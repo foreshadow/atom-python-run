@@ -7,15 +7,46 @@
 Run your python (.py) source file using `F5` or `F6`!
 
 ![](https://cloud.githubusercontent.com/assets/2712675/18710388/9a665ed8-8037-11e6-803a-35e4555e89d0.jpg)
+
 # Prerequisite
 
 - Add the directory of `python` (or the intended interpreter) to ```PATH```.
 
 - Filter file extensions (unset by default) (optional)
 
-# Supports
-- Python 2 and 3
-  - Note: If you have problems executing, you can install a global version of latest `python2.7.x` (even if you have `python3.x.x` installed). Please report any `python3` issues if you want to avoid installing a global `python2` version.
+# Method of use
+
+1. Open a source file.
+2. Hit `F5` or `F6` to run.
+  - **It will save the file in current editor immediately without a confirmation, be aware.**
+
+
+# Features
+
+- Using `python`
+  - Almost the same console with python IDLE, which provides syntax error and runtime error messages.
+- CodeBlocks debug console style
+  - Shows return value and execution time
+    - It is a rough time based on real time rather than CPU kernel / user time
+
+# Settings
+
+- Extension filter
+  - It accepts all extension by default (empty value), you can change it into `.py`
+    - or an array `.py, .something-else`
+
+- Command
+  - You can hack it using these variant, or
+    - `{file}` = `{dir}/{name}{ext}`
+  - Run with interactive mode, or
+    - `python -i {file}`
+  - Run with idle, and you may need the next setting.
+    - `pythonw C:\python27\Lib\idlelib\idle.pyw -r {file}`
+
+- Exit immediately
+  - You can disable the default cp wrapper if you don't want it.
+
+# Compatibility
 
 - Cross Platform Compatible
   - Runs on Windows, Mac OS X, and Linux
@@ -25,20 +56,8 @@ Run your python (.py) source file using `F5` or `F6`!
   - Execute using any interpreter
   - Pass options to the given interpreter
 
-# Method of use
-
-1. Open a source file.
-2. Hit `F5` or `F6` to run.
-  - **It will save the file in current editor immediately without a confirmation, be aware.**
-
-# Features
-
-- Using `python`
-  - Almost the same console with python IDLE, which provides syntax error and runtime error messages.
-- CodeBlocks debug console style
-  - Shows return value and execution time
-    - It is a rough time based on real time rather than CPU kernel time or CPU user time
-- New an issue if you have any idea of new features.
+- Python 2 and 3
+  - Note: If you have problems executing, you can install a global version of latest `python2.7.x` (even if you have `python3.x.x` installed). Please report any `python3` issues if you want to avoid installing a global `python2` version.
 
 # Issues
 - The new version of atom-python-run fully supports logging.
@@ -65,6 +84,8 @@ Run your python (.py) source file using `F5` or `F6`!
   - NOTE: If the `cp.log` file is missing, empty, or inaccurate, please note that this was case in your post.
 
 - Detailed issues are well presented issues. This will help us locate your issue.
+
+- New an issue if you have any idea of new features.
 
 ![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
 

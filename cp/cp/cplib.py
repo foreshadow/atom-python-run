@@ -48,6 +48,7 @@
 #
 from os import system, environ
 from os.path import isdir, dirname
+from subprocess import call
 from sys import platform
 import logging
 from parse import Parser
@@ -101,16 +102,15 @@ def set_command(namespace):
     if namespace.pipe:
         command.append(namespace.pipe_symbol)
         command.append(namespace.pipe_file)
-    command = ' '.join(command)
     logging.debug('command: %s', command)
     return command
 
 
 def set_clock(command):
     t = clock()
-    r = system(command)
+    r = call(command)
     t = clock() - t
-    logging.info('return code: %d: elapsed time: %.6f', r, t)
+    logging.info('return code: %d, elapsed time: %.6f', r, t)
     return r, t
 
 
@@ -118,7 +118,7 @@ def print_clock(code, time):
     # for compatability, str.format() is used instead of the print % modifier
     # https://docs.python.org/2/library/string.html#formatstrings
     print(
-        "\nProcess returned {:d} (0x{:x})\texecution time : {:.6f} s\n".format(code, code, time)
+        "\nProcess returned {:d} (0x{:x})   execution time : {:.3f} s".format(code, code, time)
     )
 
 

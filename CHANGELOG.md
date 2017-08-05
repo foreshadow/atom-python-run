@@ -1,11 +1,8 @@
-## 0.7.6
+## 0.8.0
+* cp is now optional
 * Updated and refactored terminal.js to function with python version of cp
-
-## 0.7.5
 * Ported cp from C to Python
 * Added new features to cp
-
-## 0.7.4
 * Made cross-platform compatible
 * Ported cp from C++ to C
 * Added a niche library for cp
