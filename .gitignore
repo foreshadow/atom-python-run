@@ -4,6 +4,8 @@ test
 *.pyc
 *.log
 
+__pycache__
+
 .DS_Store
 npm-debug.log
 node_modules

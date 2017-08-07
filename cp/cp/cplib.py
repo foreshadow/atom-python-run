@@ -2,18 +2,39 @@
 # NOTE: 2to3 and 3to2 Compatability
 # importing should consider 2to3 and 3to2 implications.
 #
-# for both backwards and forwards compatability, print_function and clock
-# are imported to prevent incompatability issues that may arrise.
+# NOTE: clock() is deprecated in python >= 3.3
+# for both backwards and forwards compatability, time and clock are imported to prevent
+# incompatability issues that may arrise.
 #
-# clock() is deprecated in python >= 3.3
-# process_time has not been ported back to 2.x
-# source: https://stackoverflow.com/questions/85451/python-time-clock-vs-time-time-accuracy#85533
+# process_time has not been ported back to 2.x. I'm also not sure how to implement process_time or
+# pref_time correctly.
+#
+# i decided to opt for time() instead since it is not deprecated in python 2 or 3. time() also
+# seems to be slightly more accurate than clock() since it measures time from the epoch
+# (Jan 1, 1970, 00:00:00 UTC) in seconds.
+#
+# >>> from time import time
+# >>> from time import clock
+# >>> t = time()
+# >>> t = time() - t
+# >>> t
+# 2.4237000942230225
+# >>> c = clock()
+# >>> c = clock() - c
+# >>> c
+# 0.0
+#
+# t returns ~ 2.4 seconds, while c returns ~ 0 seconds since the start of the process
+#
+# sources:
+# https://stackoverflow.com/questions/85451/python-time-clock-vs-time-time-accuracy#85533
+# https://docs.python.org/3/library/time.html#time.time
 #
 # for all intents and purposes, clock functions very much the same as it does
 # in both C and C++
 # source: https://docs.python.org/2.7/library/time.html#time.clock
 #
-# to avoid naming conflicts, process_time is imported as clock for 3.3 onwards
+# to avoid naming conflicts, time is imported as clock for 3.3 onwards
 #
 # for measuring snippets and algorithms, the built-in timeit module should be used instead
 # source: https://docs.python.org/2/library/timeit.html
@@ -49,16 +70,16 @@
 from os import system, environ
 from os.path import isdir, dirname
 from subprocess import call
+from time import time
 from sys import platform
 import logging
-from parse import Parser
-
 
 try:
-    from time import process_time as clock
+    # python 2.x.x
+    from parse import Parser
 except ImportError:
-    # deprecated as of v3.3
-    from time import clock
+    # python 3.x.x
+    from .parse import Parser
 
 
 __all__ = (
@@ -107,9 +128,11 @@ def set_command(namespace):
 
 
 def set_clock(command):
-    t = clock()
+    # should be set to .6f and not .3f since win32 is in microseconds, not milliseconds
+    # .3f is fine for unix based systems since time is usually in milliseconds
+    t = time()
     r = call(command)
-    t = clock() - t
+    t = time() - t
     logging.info('return code: %d, elapsed time: %.6f', r, t)
     return r, t
 
@@ -118,7 +141,7 @@ def print_clock(code, time):
     # for compatability, str.format() is used instead of the print % modifier
     # https://docs.python.org/2/library/string.html#formatstrings
     print(
-        "\nProcess returned {:d} (0x{:x})   execution time : {:.3f} s".format(code, code, time)
+        "\nProcess returned {:d} (0x{:x})   execution time : {:.6f} s".format(code, code, time)
     )
 
 

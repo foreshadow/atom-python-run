@@ -244,5 +244,5 @@ if __name__ == '__main__':
 
     namespace = vars(parser.get_namespace())
 
-    for key, value in namespace.iteritems():
+    for key, value in namespace.items():
         print('{} = {}'.format(key, value))
