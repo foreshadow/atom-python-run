@@ -25,6 +25,9 @@
 #    on win32, a microsecond or 1/1000000 of a second
 #    on linux, a millisecond or 1/1000 of a second
 #
+# for compatability, str.format() is used instead of the print % modifier
+# https://docs.python.org/2/library/string.html#formatstrings
+#
 # NOTE: set_logpath() issues
 # if logpath becomes an issue on win32 platforms (mainly with special characters in the path),
 # this may be remedied by escaping that special character.
@@ -115,8 +118,6 @@ def set_clock(command):
 
 
 def print_clock(code, time):
-    # for compatability, str.format() is used instead of the print % modifier
-    # https://docs.python.org/2/library/string.html#formatstrings
     print(
         "\nProcess returned {:d} (0x{:x})   execution time : {:.3f} s".format(code, code, time)
     )
