@@ -1,3 +1,6 @@
+## 0.8.1
+* Fixed python3 import error
+
 ## 0.8.0
 * cp is now optional
 * Updated and refactored terminal.js to function with python version of cp
