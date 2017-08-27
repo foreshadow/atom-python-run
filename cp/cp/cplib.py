@@ -49,20 +49,14 @@
 # NOTE: Determine platform Type
 #   https://docs.python.org/2/library/sys.html#sys.platform
 #
+from __future__ import absolute_import
 from os import system, environ
 from os.path import isdir, dirname
 from subprocess import call
+from time import time as clock
 from sys import platform
 import logging
-from parse import Parser
-
-
-try:
-    from time import process_time as clock
-except ImportError:
-    # deprecated as of v3.3
-    from time import clock
-
+from .parse import Parser
 
 __all__ = (
     'set_log_path', 'set_namespace', 'set_command',
@@ -113,7 +107,7 @@ def set_clock(command):
     t = clock()
     r = call(command)
     t = clock() - t
-    logging.info('return code: %d, elapsed time: %.6f', r, t)
+    logging.info('return code: %d, execution time: %.6f', r, t)
     return r, t
 
 
