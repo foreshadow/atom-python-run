@@ -25,6 +25,7 @@
 # just remove the filemode argument from the basicConfig call.
 # by default, filemode is already set to append.
 #
+from __future__ import absolute_import
 from __future__ import print_function
 from sys import argv, platform
 from logging import basicConfig, DEBUG, info
@@ -49,7 +50,7 @@ if __name__ == '__main__':
 
     command = cplib.set_command(namespace)
 
-    code, time = cplib.set_clock(command)
+    code, time = cplib.set_clock(command, namespace, 'w')
 
     cplib.print_clock(code, time)
 
