@@ -48,6 +48,44 @@ class Base(object):
         return self._namespace
 
 
+class Logpath(Base):
+    def logLogPath(self):
+        logging.debug('Log Path: %s', self._logPath)
+
+    def hasLogPath(self):
+        return isdir(dirname(self._logPath))
+
+    def defaultLogPath(self):
+        if 'win' in platform:
+            return "{}\\.atom\\packages\\atom-python-run\\cp.log".format(environ['USERPROFILE'])
+        return "{}/.atom/packages/atom-python-run/cp.log".format(environ['HOME'])
+
+    def setLogPath(self, path=None):
+        if path is None:
+            self._logPath = self.defaultLogPath()
+        else:
+            self._logPath = path
+
+    def getLogPath(self):
+        if not self.hasLogPath():
+            self._logPath = "cp.log"
+        return self._logPath
+
+
+class Clock(Base):
+    def getClock(self):
+        return self._clock
+
+    def logClock(self):
+        logging.info('return code: %d (0x%x)', self._exitCode, self._exitCode)
+        logging.info('elapsed time: %.6f', self._clock)
+
+    def printClock(self):
+        print("\nProcess returned {:d} (0x{:x})".format(
+            self._exitCode, self._exitCode), end="\t")
+        print("execution time : {:.3f} s".format(self._clock))
+
+
 class Command(Base):
     def _setRepl(self):
         self._command.append(self._namespace['repl'])
@@ -72,20 +110,6 @@ class Command(Base):
         return self._command
 
 
-class Clock(Base):
-    def getClock(self):
-        return self._clock
-
-    def logClock(self):
-        logging.info('return code: %d (0x%x)', self._exitCode, self._exitCode)
-        logging.info('elapsed time: %.6f', self._clock)
-
-    def printClock(self):
-        print("\nProcess returned {:d} (0x{:x})".format(
-            self._exitCode, self._exitCode), end="\t")
-        print("execution time : {:.3f} s".format(self._clock))
-
-
 class Call(Base):
     def pipeCall(self, mode='a'):
         with open(self._namespace['path'], mode) as f:
@@ -99,29 +123,8 @@ class Call(Base):
         self._exitCode = call(self._command)
         self._clock = time() - self._clock
 
-    def getExitCode(self):
+    def exitCode(self):
         return self._exitCode
-
-
-class Logpath(Base):
-    def hasLogPath(self):
-        return isdir(dirname(self._logPath))
-
-    def defaultLogPath(self):
-        if 'win' in platform:
-            return "{}\\.atom\\packages\\atom-python-run\\cp.log".format(environ['USERPROFILE'])
-        return "{}/.atom/packages/atom-python-run/cp.log".format(environ['HOME'])
-
-    def setLogPath(self, path=None):
-        if path is None:
-            self._logPath = self.defaultLogPath()
-        else:
-            self._logPath = path
-
-    def getLogPath(self):
-        if self.hasLogPath():
-            return self._logPath
-        return "cp.log"
 
 
 class Parser(Command, Call, Clock, Logpath):

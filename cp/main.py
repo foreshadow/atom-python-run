@@ -51,6 +51,8 @@ if __name__ == '__main__':
 
     info('Version Info: %s', version_info)
 
+    parser.logLogPath()
+
     parser.setLexer(argv)
 
     parser.setNamespace()
@@ -70,4 +72,4 @@ if __name__ == '__main__':
         parser.printClock()
         parser.pause()
 
-    exit(parser.getExitCode())
+    exit(parser.exitCode())
