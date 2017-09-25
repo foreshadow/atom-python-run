@@ -29,11 +29,16 @@ from __future__ import absolute_import
 from __future__ import print_function
 from sys import argv, platform
 from logging import basicConfig, DEBUG, info
-from cp import cplib
+from cp.parse import Parser
 
+version_info = "v0.2.0"
 
 if __name__ == '__main__':
-    logpath = cplib.set_log_path()
+    parser = Parser()
+
+    parser.setLogPath()
+
+    logpath = parser.getLogPath()
 
     basicConfig(
         filename=logpath,
@@ -42,18 +47,27 @@ if __name__ == '__main__':
         format='%(levelname)s: %(message)s'
     )
 
-    info('OS Type: %s', platform)
+    info('Platform: %s', platform)
 
-    info('Version Info: %s', cplib.version_info)
+    info('Version Info: %s', version_info)
 
-    namespace = cplib.set_namespace(argv)
+    parser.setLexer(argv)
 
-    command = cplib.set_command(namespace)
+    parser.setNamespace()
 
-    code, time = cplib.set_clock(command, namespace, 'w')
+    namespace = parser.getNamespace()
 
-    cplib.print_clock(code, time)
+    parser.setCommand()
 
-    cplib.pause()
+    if namespace['file']:
+        parser.pipeCall('a')
+    else:
+        parser.call('a')
 
-    exit(code)
+    parser.logClock()
+
+    if namespace['pause']:
+        parser.printClock()
+        parser.pause()
+
+    exit(parser.getExitCode())
