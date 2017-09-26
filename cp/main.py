@@ -25,14 +25,20 @@
 # just remove the filemode argument from the basicConfig call.
 # by default, filemode is already set to append.
 #
+from __future__ import absolute_import
 from __future__ import print_function
 from sys import argv, platform
 from logging import basicConfig, DEBUG, info
-from cp import cplib
+from cp.parse import Parser
 
+version_info = "v0.2.0"
 
 if __name__ == '__main__':
-    logpath = cplib.set_log_path()
+    parser = Parser()
+
+    parser.setLogPath()
+
+    logpath = parser.getLogPath()
 
     basicConfig(
         filename=logpath,
@@ -41,18 +47,29 @@ if __name__ == '__main__':
         format='%(levelname)s: %(message)s'
     )
 
-    info('OS Type: %s', platform)
+    info('Platform: %s', platform)
 
-    info('Version Info: %s', cplib.version_info)
+    info('Version Info: %s', version_info)
 
-    namespace = cplib.set_namespace(argv)
+    parser.logLogPath()
 
-    command = cplib.set_command(namespace)
+    parser.setLexer(argv)
 
-    code, time = cplib.set_clock(command)
+    parser.setNamespace()
 
-    cplib.print_clock(code, time)
+    namespace = parser.getNamespace()
 
-    cplib.pause()
+    parser.setCommand()
 
-    exit(code)
+    if namespace['file']:
+        parser.pipeCall('a')
+    else:
+        parser.call('a')
+
+    parser.logClock()
+
+    if namespace['pause']:
+        parser.printClock()
+        parser.pause()
+
+    exit(parser.exitCode())
