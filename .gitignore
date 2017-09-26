@@ -6,6 +6,8 @@ __pycache__
 
 *.log
 
+__pycache__
+
 .DS_Store
 
 npm-debug.log
