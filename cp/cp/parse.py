@@ -56,7 +56,7 @@ class Logpath(Base):
         return isdir(dirname(self._logPath))
 
     def defaultLogPath(self):
-        if 'win' in platform:
+        if 'win32' == platform:
             return "{}\\.atom\\packages\\atom-python-run\\cp.log".format(environ['USERPROFILE'])
         return "{}/.atom/packages/atom-python-run/cp.log".format(environ['HOME'])
 
