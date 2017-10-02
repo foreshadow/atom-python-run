@@ -13,7 +13,7 @@
 #
 # I came to this conclusion after some time, consideration, and extensive testing.
 #
-# Typically, fragile code is bad code; in this case it couldn't be helped.
+# Fragile code is always bad code; sadly in this case I couldn't helped it.
 # Any desired changes or fixes could impact other portions of the code.
 # The major trade off seemed to be between "code complexity" and "execution speed".
 # This module runs more "accurately" and "effeciently" than using a module fitted for regex.
