@@ -30,6 +30,7 @@ from __future__ import print_function
 from sys import argv, platform
 from logging import basicConfig, DEBUG, info
 from cp.parse import Parser
+from cp.utils import clear
 
 version_info = "v0.2.0"
 
@@ -60,6 +61,8 @@ if __name__ == '__main__':
     namespace = parser.getNamespace()
 
     parser.setCommand()
+
+    clear()
 
     if namespace['file']:
         parser.pipeCall('a')
