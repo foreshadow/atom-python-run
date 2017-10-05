@@ -129,11 +129,11 @@ class Call(Base):
 
 class Parser(Command, Call, Clock, Logpath):
     def pause(self):
-        if 'win' in platform:
+        if 'win32' == platform:
             system('pause')
-        elif 'darwin' in platform:
+        elif 'darwin' == platform:
             system('echo "Close this window to continue..."')
-        elif 'linux' in platform:
+        elif 'linux' == platform[:5]:
             system("printf 'Press [ENTER] to continue...'; read _;")
         else:
             logging.info('Unknown OS Type: %s', platform)
