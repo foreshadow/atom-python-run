@@ -32,9 +32,10 @@ from logging import basicConfig, DEBUG, info
 from cp.parse import Parser
 from cp.utils import clear
 
-version_info = "v0.2.0"
 
 if __name__ == '__main__':
+    version_info = "v0.3.0"
+
     parser = Parser()
 
     parser.setLogPath()
@@ -54,7 +55,7 @@ if __name__ == '__main__':
 
     parser.logLogPath()
 
-    parser.setLexer(argv)
+    parser.setLexer(argv, description='Handles arbitrary arguments to be executed.')
 
     parser.setNamespace()
 
@@ -67,7 +68,7 @@ if __name__ == '__main__':
     if namespace['file']:
         parser.pipeCall('a')
     else:
-        parser.call('a')
+        parser.call()
 
     parser.logClock()
 
