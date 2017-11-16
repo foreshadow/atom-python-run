@@ -9,6 +9,8 @@
 # https://docs.python.org/2/library/timeit.html
 # https://docs.python.org/2/library/sys.html#sys.platform
 # https://docs.python.org/2/library/string.html#formatstrings
+# https://docs.python.org/3.6/howto/argparse.html
+# https://docs.python.org/3.6/library/argparse.html
 #
 from __future__ import absolute_import
 from __future__ import print_function
@@ -17,8 +19,8 @@ from os.path import isdir, dirname
 from subprocess import call
 from time import time
 from sys import platform
+import argparse
 import logging
-from .lexer import Lexer
 
 
 __all__ = ("Parser",)
@@ -26,6 +28,7 @@ __all__ = ("Parser",)
 
 class Base(object):
     def __init__(self):
+        self._parser = None
         self._lexer = None
         self._namespace = dict()
         self._command = list()
@@ -33,16 +36,19 @@ class Base(object):
         self._exitCode = None
         self._clock = None
 
-    def setLexer(self, ast):
-        self._lexer = Lexer(ast)
-        self._lexer.scan()
-        self._lexer.logNamespace()
+    def setLexer(self, *args, **kwargs):
+        self._parser = argparse.ArgumentParser(**kwargs)
+        self._parser.add_argument('-f', '--file', help="pipes 'stdout' and 'stderr' to the given file")
+        self._parser.add_argument('-p', '--pause', action='store_true', default=False, help="prompt client for 'stdin'")
+        self._parser.add_argument('repl', help="the interpreter used to execute 'args'")
+        self._parser.add_argument('args', nargs='+', help="the arugments that are passed to 'repl'")
+        self._lexer = self._parser.parse_args(*args[1:])
 
     def getLexer(self):
         return self._lexer
 
     def setNamespace(self):
-        self._namespace = self._lexer.getNamespace()
+        self._namespace = vars(self._lexer)
 
     def getNamespace(self):
         return self._namespace
@@ -90,21 +96,22 @@ class Command(Base):
     def _setRepl(self):
         self._command.append(self._namespace['repl'])
 
-    def _setOptions(self):
-        for option in self._namespace['options']:
-            self._command.append(option)
-
-    def _setScript(self):
-        self._command.append(self._namespace['script'])
+    def _setArgs(self):
+        for arg in self._namespace['args']:
+            self._command.append(arg)
 
     def _logCommand(self):
         logging.debug('command: %s', self._command)
 
+    def _logNamespace(self):
+        for key, value in self._namespace.items():
+            logging.debug('%s: %s', key, value)
+
     def setCommand(self):
         self._setRepl()
-        self._setOptions()
-        self._setScript()
+        self._setArgs()
         self._logCommand()
+        self._logNamespace()
 
     def getCommand(self):
         return self._command
@@ -112,13 +119,13 @@ class Command(Base):
 
 class Call(Base):
     def pipeCall(self, mode='a'):
-        with open(self._namespace['path'], mode) as f:
+        with open(self._namespace['file'], mode) as stream:
             self._clock = time()
-            self._exitCode = call(self._command, stdout=f, stderr=f)
+            self._exitCode = call(self._command, stdout=stream, stderr=stream)
             self._clock = time() - self._clock
             f.close()
 
-    def call(self, mode='a'):
+    def call(self):
         self._clock = time()
         self._exitCode = call(self._command)
         self._clock = time() - self._clock
