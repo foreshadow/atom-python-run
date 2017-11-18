@@ -1,3 +1,6 @@
+## 0.9.4
+* Fixed inconsistency due to editor.save becoming async
+
 ## 0.8.1
 * Fixed python3 import error
 
