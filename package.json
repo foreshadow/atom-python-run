@@ -1,7 +1,7 @@
 {
   "name": "atom-python-run",
   "main": "./lib/atom-python-run.js",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Run a python source file.",
   "keywords": [
     "python"
