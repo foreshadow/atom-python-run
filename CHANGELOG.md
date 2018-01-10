@@ -1,4 +1,4 @@
-## v1.1.0
+## v1.1.2
 * Support for Windows and Linux
 * Select a terminal through a drop-down list 
 * Optional pause when finishing the execution of a program
