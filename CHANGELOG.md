@@ -1,3 +1,8 @@
+## v1.1.0
+* Support for Windows and Linux
+* Select a terminal through a drop-down list 
+* Optional pause when finishing the execution of a program
+
 ## v1.0.4
 * Fix shell issue for Ubuntu 16.04LTS based distributions
 
