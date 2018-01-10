@@ -2,16 +2,18 @@
   "name": "python-run-terminalnx",
   "main": "./lib/python-run-terminalnx.js",
   "version": "1.0.3",
-  "description": "Run a python source file in a Linux Terminal.",
+  "description": "Run a python source file.",
   "keywords": [
     "python",
     "terminal",
     "gnome-terminal",
     "konsole",
+    "xfce4-terminal",
+    "deepin-terminal",
     "terminator",
-    "xterm",
-    "uxterm",
-    "linux"
+    "cmd",
+    "linux",
+    "windows"
   ],
   "repository": "https://github.com/jacquexgithub/python-run-terminalnx",
   "license": "MIT",

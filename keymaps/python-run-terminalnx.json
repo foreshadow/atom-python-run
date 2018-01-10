@@ -1,6 +1,6 @@
 {
   "atom-text-editor": {
-    "f5": "Python run in terminal: run",
-    "f6": "Python run in terminal: run"
+    "f5": "Python run in a command line terminal: run",
+    "f6": "Python run in a command line terminal: run"
   }
 }
