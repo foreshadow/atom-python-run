@@ -1,3 +1,7 @@
+## v1.1.4
+* Bug in the file load run_python_code.bat on Windows
+* Bugs in the passage of arguments from the command line
+
 ## v1.1.3
 * Support for Windows and Linux
 * Select a terminal through a drop-down list 
