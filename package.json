@@ -1,7 +1,7 @@
 {
   "name": "python-run-terminalnx",
   "main": "./lib/python-run-terminalnx.js",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Run a python source file.",
   "keywords": [
     "python",
