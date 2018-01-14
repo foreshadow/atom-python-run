@@ -1,9 +1,8 @@
 {
+  "name": "python-run-terminalnx",
+  "main": "./lib/python-run-terminalnx.js",
+  "version": "1.1.7",
   "description": "Run a python source file.",
-  "engines": {
-    "atom": ">=1.0.0 <2.0.0"
-  },
-  "homepage": "https://github.com/jacquexgithub/python-run-terminalnx#readme",
   "keywords": [
     "python",
     "terminal",
@@ -16,14 +15,10 @@
     "linux",
     "windows"
   ],
+  "repository": "https://github.com/jacquexgithub/python-run-terminalnx",
   "license": "MIT",
-  "main": "./lib/python-run-terminalnx.js",
-  "name": "python-run-terminalnx",
-  "readmeFilename": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jacquexgithub/python-run-terminalnx.git"
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {},
-  "version": "1.1.6"
+  "dependencies": {}
 }

@@ -1,4 +1,4 @@
-## v1.1.6
+## v1.1.7
 * Bug in the file load run_python_code.bat on Windows
 * Bugs in the passage of arguments from the command line
 
