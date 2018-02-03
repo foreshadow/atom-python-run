@@ -9,15 +9,15 @@ Run your python (.py) source file using `F5` or `F6`!
 ![](https://cloud.githubusercontent.com/assets/2712675/18710388/9a665ed8-8037-11e6-803a-35e4555e89d0.jpg)
 
 # Contents
-- [Prerequisite](https://github.com/foreshadow/atom-python-run#prerequisite)
-- [Method of use](https://github.com/foreshadow/atom-python-run#method-of-use)
-- [Features](https://github.com/foreshadow/atom-python-run#features)
-- [Settings](https://github.com/foreshadow/atom-python-run#settings)
-- [Compatability](https://github.com/foreshadow/atom-python-run#compatibility)
+- [Prerequisite](#prerequisite)
+- [Method of use](#method-of-use)
+- [Features](#features)
+- [Settings](#settings)
+- [Compatability](#compatibility)
 - [Documentation](https://github.com/foreshadow/atom-python-run/wiki)
-- [Issues](https://github.com/foreshadow/atom-python-run#issues)
-- [Logs](https://github.com/foreshadow/atom-python-run#logs)
-- [Development](https://github.com/foreshadow/atom-python-run#development)
+- [Issues](#issues)
+- [Logs](#logs)
+- [Development](#development)
 
 # Prerequisite
 
