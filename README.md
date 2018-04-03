@@ -10,7 +10,7 @@ Run your python (.py) source file using `F5` or `F6`!
 
 # Contents
 - [Prerequisite](#prerequisite)
-- [Documentation](https://github.com/foreshadow/atom-python-run/wiki)
+- [Documentation](#documentation)
 - [Features](#features)
 - [Compatability](#compatibility)
 - [Issues](#issues)
