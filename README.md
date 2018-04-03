@@ -10,9 +10,9 @@ Run your python (.py) source file using `F5` or `F6`!
 
 # Contents
 - [Prerequisite](#prerequisite)
-- [Documentation](#documentation)
 - [Features](#features)
 - [Compatability](#compatibility)
+- [Documentation](#documentation)
 - [Issues](#issues)
 - [Development](#development)
 
@@ -21,18 +21,6 @@ Run your python (.py) source file using `F5` or `F6`!
 - Atom Text Editor (nightly or latest stable release)
 - Python 2 and/or 3
 - Add Python (and any other interpreters) to the `PATH` environment variable.
-
-# Documentation
-
-This project has been documented in a fair amount of detail over time. This documentation can be found in the [Wiki](https://github.com/foreshadow/atom-python-run/wiki).
-
-**Everyone** should take the time to reveiw the [Wiki README](https://github.com/foreshadow/atom-python-run/wiki/00-Readme) at the bare minimum. It details an overview on how to handle issues, use different versions, and includes links to primary sections of the Wiki. 
-
-**Everyone** should also take the time to review the Wiki section [How do I use atom-python-run?](https://github.com/foreshadow/atom-python-run/wiki/12-How-Do-I-Use-atom-python-run). It covers everything from installation, to configuration, logging, and much more. You just might be surprised by what you can do with atom-python-run.
-
-You should have the basics after having covered both the *README* and *How Do I use atom-python-run?* sections. Most FAQ's can be resolved by simply reading them. The guides provided should allow us to help you with what ever issue you're facing.
-
-**NOTE**: Be sure to read the [Wiki](https://github.com/foreshadow/atom-python-run/wiki) and the [Wiki README](https://github.com/foreshadow/atom-python-run/wiki/00-Readme) before reporting an issue or making a pull request. A lot of time has been put in to it to help you the user (or dev) get started and on your way.
 
 # Features
 
@@ -55,6 +43,18 @@ You should have the basics after having covered both the *README* and *How Do I 
 
 - Python 2 and 3
   - Note: If you have problems executing, you can install a global version of latest `python2.7.x` (even if you have `python3.x.x` installed). Please report any `python3` issues if you want to avoid installing a global `python2` version.
+
+# Documentation
+
+This project has been documented in a fair amount of detail over time. This documentation can be found in the [Wiki](https://github.com/foreshadow/atom-python-run/wiki).
+
+**Everyone** should take the time to reveiw the [Wiki README](https://github.com/foreshadow/atom-python-run/wiki/00-Readme) at the bare minimum. It details an overview on how to handle issues, use different versions, and includes links to primary sections of the Wiki. 
+
+**Everyone** should also take the time to review the Wiki section [How do I use atom-python-run?](https://github.com/foreshadow/atom-python-run/wiki/12-How-Do-I-Use-atom-python-run). It covers everything from installation, to configuration, logging, and much more. You just might be surprised by what you can do with atom-python-run.
+
+You should have the basics after having covered both the *README* and *How Do I use atom-python-run?* sections. Most FAQ's can be resolved by simply reading them. The guides provided should allow us to help you with what ever issue you're facing.
+
+**NOTE**: Be sure to read the [Wiki](https://github.com/foreshadow/atom-python-run/wiki) and the [Wiki README](https://github.com/foreshadow/atom-python-run/wiki/00-Readme) before reporting an issue or making a pull request. A lot of time has been put in to it to help you the user (or dev) get started and on your way.
 
 # Issues
 - Before newing an issue, check to see if someone else is experiencing any related issues.
